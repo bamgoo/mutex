@@ -1,7 +1,6 @@
 package mutex
 
 import (
-	"fmt"
 	"reflect"
 	"sync"
 	"time"
@@ -314,7 +313,7 @@ func (m *Module) Start() {
 		return
 	}
 	m.started = true
-	fmt.Printf("infrago mutex module is running with %d connections.\n", len(m.instances))
+	infra.Log(infra.LogLevelInfo, "mutex", "module started", base.Map{"connections": len(m.instances)})
 }
 
 // Stop stops module (no-op).
